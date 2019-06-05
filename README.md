@@ -3,6 +3,7 @@ Node.js C++ Addons TypeScript Example
 
 ### Configure
 ```sh
+$ npm i
 $ npm run addon:init
 ```
 
