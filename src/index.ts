@@ -12,7 +12,7 @@ console.log('test.foo', test.foo()); // bar
 // tslint:disable-next-line: no-floating-promises
 (async (): Promise<void> => {
 try {
-  // https://nodejs.org/dist/latest-v8.x/docs/api/process.html#process_process_hrtime_time
+  // https://nodejs.org/api/process.html#process_process_hrtime_time
   const NS_PER_SEC: number = 1e9;
   const MS_PER_NS: number = 1e6;
   const size: number = 1000000000;
