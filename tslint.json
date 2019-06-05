@@ -1,0 +1,13 @@
+{
+  "extends": "tslint-microsoft-contrib",
+  "rules": {
+    "no-console": false,
+    "no-void-expression": false,
+    "no-relative-imports": false,
+    "no-null-keyword": false,
+    "no-unsafe-any": false,
+    "newline-per-chained-call": false,
+    "strict-boolean-expressions": false,
+    "await-promise": false
+  }
+}

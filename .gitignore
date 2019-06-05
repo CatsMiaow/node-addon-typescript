@@ -1,3 +1,9 @@
+.vscode
+.DS_Store
+build
+dist
+
+
 # Logs
 logs
 *.log

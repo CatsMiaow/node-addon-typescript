@@ -1,0 +1,37 @@
+{
+  "name": "node-addon-typescript",
+  "version": "0.1.0",
+  "description": "Node.js C++ Addons TypeScript Example",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "tslint ./src/**/*.ts",
+    "build": "rimraf dist && tsc -b",
+    "ts": "ts-node",
+    "addon:init": "node-gyp configure",
+    "addon:build": "node-gyp build && ts-node bin/addon.ts",
+    "start": "ts-node src/index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CatsMiaow/node-addon-typescript.git"
+  },
+  "author": "infiltrator@naver.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CatsMiaow/node-addon-typescript/issues"
+  },
+  "homepage": "https://github.com/CatsMiaow/node-addon-typescript#readme",
+  "dependencies": {
+    "node-addon-api": "^1.6.3"
+  },
+  "devDependencies": {
+    "@types/node": "^12.0.4",
+    "dtslint": "^0.7.7",
+    "node-gyp": "^4.0.0",
+    "ts-node": "^8.2.0",
+    "tslint": "^5.17.0",
+    "tslint-microsoft-contrib": "^6.2.0",
+    "typescript": "^3.5.1"
+  }
+}
