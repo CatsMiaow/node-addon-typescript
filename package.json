@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "Node.js C++ Addons TypeScript Example",
   "main": "index.js",
+  "engines": {
+    "node": ">=12"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "tslint ./src/**/*.ts",
@@ -23,15 +26,15 @@
   },
   "homepage": "https://github.com/CatsMiaow/node-addon-typescript#readme",
   "dependencies": {
-    "node-addon-api": "^2.0.0"
+    "node-addon-api": "^3.0.2"
   },
   "devDependencies": {
-    "@types/node": "^13.1.6",
-    "dtslint": "^2.0.5",
-    "node-gyp": "^6.1.0",
-    "ts-node": "^8.6.0",
+    "@types/node": "^14.14.13",
+    "dtslint": "^4.0.6",
+    "node-gyp": "^7.1.2",
+    "ts-node": "^9.1.1",
     "tslint": "^5.20.1",
     "tslint-microsoft-contrib": "^6.2.0",
-    "typescript": "^3.7.4"
+    "typescript": "^4.1.3"
   }
 }
