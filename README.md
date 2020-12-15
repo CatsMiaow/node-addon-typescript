@@ -1,25 +1,30 @@
 # node-addon-typescript
+
 Node.js C++ Addons TypeScript Example
 
-### Configure
+## Configure
+
 ```sh
-$ npm i
-$ npm run addon:init
+npm ci
+npm run addon:init
 ```
 
-### Build
+## Build
+
 ```sh
-$ npm run addon:build
+npm run addon:build
 ```
 
-### Run
+## Run
+
 ```sh
-$ npm run ts src/index
+npm run ts src/index
 # OR
-$ npm start
+npm start
 ```
 
-##### Documentation
+### Documentation
+
 * [Node.js C++ Addons](https://nodejs.org/api/addons.html)
 * [Node.js C++ Addons Examples](https://github.com/nodejs/node-addon-examples)
 * [Module for using N-API from C++](https://github.com/nodejs/node-addon-api)
