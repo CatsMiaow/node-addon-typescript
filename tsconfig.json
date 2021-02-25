@@ -2,28 +2,21 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {},
-    "target": "es2017",
+    "target": "ES2019",
     "outDir": "dist",
     "module": "commonjs",
     "moduleResolution": "node",
+    "incremental": true,
     "declaration": true,
     "strict": true,
+    "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
-    "noFallthroughCasesInSwitch": true,
     "removeComments": true,
     "sourceMap": true,
-    "inlineSources": true,
     "forceConsistentCasingInFileNames": true,
-    // "noUnusedParameters": true,
-    // "suppressImplicitAnyIndexErrors": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "skipLibCheck": true
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }
