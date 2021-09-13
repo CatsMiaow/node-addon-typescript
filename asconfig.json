@@ -1,0 +1,21 @@
+{
+  "targets": {
+    "debug": {
+      "binaryFile": "addons/untouched.wasm",
+      "textFile": "addons/untouched.wat",
+      "sourceMap": true,
+      "debug": true
+    },
+    "release": {
+      "binaryFile": "addons/optimized.wasm",
+      "textFile": "addons/optimized.wat",
+      "tsdFile": "addons/optimized.wasm.d.ts",
+      "sourceMap": true,
+      "optimizeLevel": 3,
+      "shrinkLevel": 0,
+      "converge": false,
+      "noAssert": false
+    }
+  },
+  "options": {}
+}
