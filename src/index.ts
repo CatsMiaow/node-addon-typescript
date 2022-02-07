@@ -1,5 +1,6 @@
-import { pre } from './utils';
-import { startWasiTask } from './assembly';
+import { performance } from 'perf_hooks';
+
+import { getWasmModule } from './assembly';
 import { calc as cpp, test } from '../addons/addon';
 //= import { calc, test } from '../addons';
 import * as demo from '../addons/demo';
@@ -13,48 +14,44 @@ console.log('test.foo', test.foo()); // bar
 
 (async (): Promise<void> => {
 try {
-  const assembly = await startWasiTask();
+  const assembly = await getWasmModule();
 
-  // https://nodejs.org/api/process.html#process_process_hrtime_time
-  const NS_PER_SEC = 1e9;
-  const MS_PER_NS = 1e6;
   const size = 1000000000;
-  let start: [number, number];
   let now: number;
   let count: number = 0;
   let result: number;
 
   console.log(`> ${size.toLocaleString()} loop: nodeCase(N) vs. cppCase(C) vs. assemblyCase(A)`);
+
+  // #region case1
   for (let i = 1; i <= 10; i += 1) {
-    // #region case1
     count = 0;
-    start = process.hrtime();
+    now = performance.now();
     for (let j = 0; j < size; j += 1) {
       count += 1;
     }
-    const node1 = process.hrtime(start);
+    const node1 = performance.now() - now;
 
-    start = process.hrtime();
+    now = performance.now();
     result = await cpp.loop(size);
-    const cpp1 = process.hrtime(start);
+    const cpp1 = performance.now() - now;
     if (result !== size) {
       throw new Error(`InvalidCpp: ${result}`);
     }
 
-    start = process.hrtime();
+    now = performance.now();
     result = assembly.loop(size);
-    const as1 = process.hrtime(start);
+    const as1 = performance.now() - now;
     if (result !== size) {
       throw new Error(`InvalidAssembly: ${result}`);
     }
 
-    console.log(pre`> case${i}-1:
-      N ${(node1[0] * NS_PER_SEC + node1[1]) / MS_PER_NS}ms
-      C ${(cpp1[0] * NS_PER_SEC + cpp1[1]) / MS_PER_NS}ms
-      A ${(as1[0] * NS_PER_SEC + as1[1]) / MS_PER_NS}ms`);
-    // #endregion case1
+    console.log(`> case1-${i}: N ${node1}ms / C ${cpp1}ms / A ${as1}ms`);
+  }
+  // #endregion case1
 
-    // #region case2
+  // #region case2
+  for (let i = 1; i <= 10; i += 1) {
     count = 0;
     now = Date.now();
     for (let k = 0; k < size; k += 1) {
@@ -76,12 +73,9 @@ try {
       throw new Error(`InvalidAssembly: ${result}`);
     }
 
-    console.log(pre`> case${i}-2:
-      N ${node2}ms
-      C ${cpp2}ms
-      A ${as2}ms`);
-    // #endregion case2
+    console.log(`> case2-${i}: N ${node2}ms / C ${cpp2}ms / A ${as2}ms`);
   }
+  // #endregion case2
 
   console.log(`> ${count.toLocaleString()} loop: End.`);
 } catch (err) {
