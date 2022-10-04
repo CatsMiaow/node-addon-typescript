@@ -1,6 +1,6 @@
 # node-addon-typescript
 
-Node.js WebAssembly and C++ Addons TypeScript Example
+Node.js WebAssembly and C++ addons TypeScript example
 
 ## Configure
 
