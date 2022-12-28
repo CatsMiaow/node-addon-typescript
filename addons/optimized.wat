@@ -1,9 +1,9 @@
 (module
- (type $i32_=>_i32 (func (param i32) (result i32)))
+ (type $i32_=>_i32 (func_subtype (param i32) (result i32) func))
  (memory $0 0)
  (export "loop" (func $assembly/index/loop))
  (export "memory" (memory $0))
- (func $assembly/index/loop (param $0 i32) (result i32)
+ (func $assembly/index/loop (type $i32_=>_i32) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   loop $for-loop|0
