@@ -21,7 +21,7 @@ try {
   let count: number = 0;
   let result: number;
 
-  console.log(`> ${size.toLocaleString()} loop: nodeCase(N) vs. cppCase(C) vs. assemblyCase(A)`);
+  console.log(`> ${size.toLocaleString()} loop: NodeCase(N) vs. CppCase(C) vs. AssemblyCase(A)`);
 
   // #region case1
   for (let i = 1; i <= 10; i += 1) {

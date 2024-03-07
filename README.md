@@ -19,7 +19,7 @@ npm run asbuild # assembly
 ## Run
 
 ```sh
-npm run ts src/index
+npx tsx src/index
 # OR
 npm start
 ```
